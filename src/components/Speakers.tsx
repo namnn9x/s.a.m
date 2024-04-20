@@ -8,23 +8,25 @@ import clsx from 'clsx'
 import { Container } from '@/components/Container'
 import { DiamondIcon } from '@/components/DiamondIcon'
 import andrewGreeneImage from '@/images/avatars/andrew-greene.jpg'
-import cathleneBurrageImage from '@/images/avatars/2.toddler.jpg'
-import damarisKimuraImage from '@/images/avatars/2.Mom.jpg'
+import milkToddle from '@/images/avatars/2.toddler.jpg'
+import milkMomImage from '@/images/avatars/2.Mom.jpg'
 import dianneGuilianelliImage from '@/images/avatars/dianne-guilianelli.jpg'
 import erhartCockrinImage from '@/images/avatars/erhart-cockrin.jpg'
-import giordanoSagucioImage from '@/images/avatars/giordano-sagucio.jpg'
+import milkProgressImage from '@/images/avatars/milk-progress.png'
 import gordonSandersonImage from '@/images/avatars/gordon-sanderson.jpg'
 import heatherTerryImage from '@/images/avatars/heather-terry.jpg'
 import ibrahimFraschImage from '@/images/avatars/ibrahim-frasch.jpg'
-import jaquelinIschImage from '@/images/avatars/nuoc-rua-rau-cu.jpg'
+import vegetableWashImage from '@/images/avatars/nuoc-rua-rau-cu.jpg'
 import kimberlyParsonsImage from '@/images/avatars/kimberly-parsons.jpg'
 import parkerJohnsonImage from '@/images/avatars/parker-johnson.jpg'
 import piersWilkinsImage from '@/images/avatars/piers-wilkins.jpg'
 import richardAstley from '@/images/avatars/richard-astley.jpg'
-import rinaldoBeynonImage from '@/images/avatars/rinaldo-beynon.jpg'
+import milkGoldImage from '@/images/avatars/milk-gold.jpg'
 import ronniCantadoreImage from '@/images/avatars/ronni-cantadore.jpg'
-import stevenMchailImage from '@/images/avatars/nuoc-lau-san.jpg'
-import waylonHydenImage from '@/images/avatars/waylon-hyden.jpg'
+import laundryDetergentImage from '@/images/avatars/nuoc-lau-san.jpg'
+import milkBacilcusImage from '@/images/avatars/milk-bacilcus;.jpg'
+import clearVirusWash from '@/images/avatars/diet-khuan.jpg'
+import clearVirusKitchen from '@/images/avatars/xịt bếp.jpg'
 
 const days = [
   {
@@ -34,12 +36,22 @@ const days = [
       {
         name: 'Nước giặt xả Purecle',
         price: '170,000 VND',
-        image: stevenMchailImage,
+        image: laundryDetergentImage,
       },
       {
         name: 'Nước rửa rau củ Purecle',
         price: '170,000 VND',
-        image: jaquelinIschImage,
+        image: vegetableWashImage,
+      },
+      {
+        name: 'Pureclé Diệt khuẩn nhà vệ sinh',
+        price: '170,000 VND',
+        image: clearVirusWash,
+      },
+      {
+        name: 'Pureclé Diệt khuẩn nhà bếp',
+        price: '170,000 VND',
+        image: clearVirusKitchen,
       },
     ],
   },
@@ -50,27 +62,27 @@ const days = [
       {
         name: 'Sữa bột dành cho mẹ bầu Dr Nutri Mom',
         price: '520,000 VND',
-        image: damarisKimuraImage,
+        image: milkMomImage,
       },
       {
         name: 'Sữa Bột PT Chiều Cao Dr Nutri Toddler',
         price: '540,000 VND',
-        image: cathleneBurrageImage,
+        image: milkToddle,
       },
       {
-        name: 'Rinaldo Beynon',
-        price: 'Data Scientist at Rekall',
-        image: rinaldoBeynonImage,
+        name: 'Sữa dinh dưỡng Dr Nutri Gold',
+        price: '650,000 VND',
+        image: milkGoldImage,
       },
       {
-        name: 'Waylon Hyden',
-        price: 'DevOps at RDA Corporation',
-        image: waylonHydenImage,
+        name: 'Sữa Non Dr Nutri Colostrum Protein Bacicus Hương Vani và socola',
+        price: '1,100,000 VND',
+        image: milkBacilcusImage,
       },
       {
-        name: 'Giordano Sagucio',
-        price: 'Game Developer at Soylent Corp',
-        image: giordanoSagucioImage,
+        name: 'Sữa bột dinh dưỡng Dr Nutri Progress',
+        price: '540,000 VND',
+        image: milkProgressImage,
       },
     ],
   },
@@ -147,7 +159,7 @@ export function Speakers() {
               {({ selectedIndex }) => (
                 <>
                   {days.map((day, dayIndex) => (
-                    <div key={day.dateTime} className="relative lg:pl-8">
+                    <div key={day.name} className="relative lg:pl-8">
                       <DiamondIcon
                         className={clsx(
                           'absolute left-[-0.5px] top-[0.5625rem] hidden h-1.5 w-1.5 overflow-visible lg:block',
@@ -170,12 +182,6 @@ export function Speakers() {
                             {day.name}
                           </Tab>
                         </div>
-                        <time
-                          dateTime={day.dateTime}
-                          className="mt-1.5 block text-2xl font-semibold tracking-tight text-blue-900"
-                        >
-                          {day.date}
-                        </time>
                       </div>
                     </div>
                   ))}
@@ -186,7 +192,7 @@ export function Speakers() {
           <Tab.Panels className="lg:col-span-3">
             {days.map((day) => (
               <Tab.Panel
-                key={day.dateTime}
+                key={day.name}
                 className="grid grid-cols-1 gap-x-8 gap-y-10 ui-not-focus-visible:outline-none sm:grid-cols-2 sm:gap-y-16 md:grid-cols-3"
                 unmount={false}
               >
